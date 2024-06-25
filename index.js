@@ -1,7 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const requestIp = require('request-ip'); // Import the request-ip package
 const app = express();
 app.use(express.json());
+
+// Middleware to capture the IP address
+app.use(requestIp.mw())
+
+
 // Connect DB
 mongoose
   .connect(
@@ -15,6 +21,16 @@ mongoose
   });
 // Import Article model (Table)
 const Article = require("./models/Article");
+
+
+// Endpoint to log and return the IP address
+app.get("/my-ip", (req, res) => {
+  const clientIp = req.clientIp;
+  console.log("Client IP address:", clientIp);
+  res.send(`Client IP address: ${clientIp}`);
+});
+
+
 
 // Post Article
 app.post("/newArticle", async (req, res) => {
@@ -58,13 +74,6 @@ app.put("/article/:id", async (req, res) => {
     res.send(error.message);
   }
   res.json("Update successfully");
-});
-
-//Get Article by id
-app.get("/article/:id", async (req, res) => {
-  let id = req.params.id;
-  const article = await Article.fi;
-  res.json(article);
 });
 
 
