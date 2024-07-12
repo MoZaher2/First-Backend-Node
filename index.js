@@ -4,7 +4,6 @@ const cors=require("cors")
 const path=require("node:path")
 app = express();
 port = 3000;
-hostName = "127.0.0.1";
 app.use(express.json());
 const coursesRouter=require("./routes/courses.route")
 const usersRouter=require("./routes/users.route")
@@ -31,6 +30,6 @@ mongoose.connect(process.env.MONGODB_URL, { serverSelectionTimeoutMS: 5000 }).th
 
 
 // Server Listening
-app.listen(port, hostName, () => {
-  console.log("server listen on " + hostName + ":" + port);
+app.listen(port ,() => {
+  console.log("server listen on " + ":" + port);
 });
