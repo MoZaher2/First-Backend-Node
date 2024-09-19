@@ -36,7 +36,7 @@ const usersSchema = new Schema({
   },
   avatar:{
     type:String,
-    default:"avatar.jpeg"
+    default:""
   }
 });
 

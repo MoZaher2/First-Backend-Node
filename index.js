@@ -3,14 +3,16 @@ const mongoose=require("mongoose")
 const cors=require("cors")
 const path=require("node:path")
 app = express();
-port = 3000;
+port = 5000;
 app.use(express.json());
 const coursesRouter=require("./routes/courses.route")
 const usersRouter=require("./routes/users.route")
+const productsRouter=require("./routes/products.route")
 
 app.use(cors())
 app.use("/api/courses",coursesRouter)
 app.use("/api/users",usersRouter)
+app.use("/api/products",productsRouter)
 // Upload avatar preview
 app.use("/uploads",express.static(path.join(__dirname,"uploads")))
 
@@ -26,10 +28,7 @@ mongoose.connect(process.env.MONGODB_URL, { serverSelectionTimeoutMS: 5000 }).th
 
 
 
-
-
-
 // Server Listening
-app.listen(port ,() => {
+app.listen(port, () => {
   console.log("server listen on " + ":" + port);
 });
