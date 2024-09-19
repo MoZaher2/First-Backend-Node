@@ -36,5 +36,5 @@ router.route("/")
 router.route("/register")
         .post(upload.single('avatar'),filetypeMiddleware,usersMiddleware.middlewareBody,usersController.register)
 router.route("/login")
-        .get(usersController.login)
+        .post(usersController.login)
 module.exports=router
