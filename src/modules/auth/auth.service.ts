@@ -25,6 +25,7 @@ function signToken(user: UserRow): string {
     sub: user.id,
     username: user.username,
     role: user.role,
+    is_active: user.is_active,
   };
 
   return jwt.sign(payload, env.jwtSecret, {
