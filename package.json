@@ -12,6 +12,9 @@
     "test": "vitest",
     "seed:admin": "tsx src/database/seed-admin.ts"
   },
+   "engines": {
+    "node": "24.x"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
