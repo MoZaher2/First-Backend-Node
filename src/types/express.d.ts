@@ -1,5 +1,5 @@
 // src/types/express.d.ts
-import type { UserRole } from '../modules/auth/auth.types';
+import type { UserRole } from '../modules/auth/auth.types.js';
 
 declare module 'express-serve-static-core' {
   interface Request {

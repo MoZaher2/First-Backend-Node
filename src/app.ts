@@ -3,9 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
-import routes from './routes';
-import { errorHandler } from './middlewares/errorHandler';
-import { notFound } from './middlewares/notFound';
+import routes from './routes/index.js';
+import { errorHandler } from './middlewares/errorHandler.js';
+import { notFound } from './middlewares/notFound.js';
 
 const app = express();
 

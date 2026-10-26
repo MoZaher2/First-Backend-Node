@@ -1,6 +1,6 @@
 import http from 'http';
-import app from './app';
-import { env } from './config/env';
+import app from './app.js';
+import { env } from './config/env.js';
 
 const PORT = env.port;
 
